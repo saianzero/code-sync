@@ -20,6 +20,13 @@ class Graph:
                 indegree[v]+=1
             return indegree
 
+    # indegree list from adj matrix
+    def build_indegree_list_from_matrix(self, matrix, indegree):
+        for u in range(len(matrix)):
+            for v in range(len(matrix[u])):
+                if matrix[u][v] == 1:
+                    indegree[v] += 1
+
 
     def bfs(self, V, adj, indegree, res):
 
@@ -29,14 +36,13 @@ class Graph:
             if indegree[u] == 0:
                 q.append(u)
 
-
         while q:
             u = q.popleft()
             res.append(u)
-
+        
             for v in adj[u]:
                 indegree[v]-=1
-
+        
                 if indegree[v] == 0:
                     q.append(v)
         return res
