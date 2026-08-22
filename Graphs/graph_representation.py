@@ -13,6 +13,18 @@ class Graph:
         for u, v in self.edges:
             # u ---edge---> v
             adj[u].append(v)
+            # adj(v).append(u) # for undirected
+
+        return adj
+
+    # works for both directed and undirected
+    def build_adjacency_list_from_matrix(matrix):
+        adj = defaultdict(list)
+
+        for u in range(len(matrix)):
+            for v in range(len(matrix[u])):
+                if matrix[u][v] == 1:
+                    adj[u].append(v)
 
         return adj
 
