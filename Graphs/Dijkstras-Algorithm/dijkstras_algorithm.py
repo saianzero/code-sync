@@ -19,10 +19,12 @@ class Solution:
             d,u = heapq.heappop(min_heap)
             
             # (Optimization) skip stale heap entries
+            # d: src -> u distance, res[u] : min distance from src to u, so far
             if d > res[u]:
                 continue
             
             for v, w in adj[u]:
+                # d+w: src -(d)-> u -(w)-> v
                 if d+w < res[v]:
                     res[v] = d+w
                     heapq.heappush(min_heap, (res[v],v))
@@ -30,6 +32,7 @@ class Solution:
         return res
         
         """
+        Min distance bw nodes in Undirected Weighted Graph
         Summary:
         1. Initialize res with inf values
         2. Initialize min_heap with [0, source], i.e. source to source is 0 weight
