@@ -26,7 +26,7 @@ class UnionFind:
         if x_root == y_root:
             return False
 
-        # rank compression (union by rank)
+        # union by rank
         if self.rank[x_root] > self.rank[y_root]:
             self.parent[y_root] = x_root
 
