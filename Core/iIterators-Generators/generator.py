@@ -33,3 +33,10 @@ filepath = "/Users/ankith/Documents/text.txt" #some random text file
 
 for line in read_file(filepath):
    print(line)
+
+
+"""
+A generator is itself an iterator.
+Generators provide lazy evaluation, so values are produced on demand rather than all being materialized in memory at once. 
+This can significantly reduce memory usage for large datasets or stream.
+"""
